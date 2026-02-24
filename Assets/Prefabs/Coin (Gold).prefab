@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8f2b413badcde4d92ce90269035219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
+  coinClip: {fileID: 8300000, guid: 4810b5971951446d2ba39f367a2dc2d6, type: 3}
 --- !u!61 &5107568330294204891
 BoxCollider2D:
   m_ObjectHideFlags: 0
