@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public int coins;
     public int health = 100;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
