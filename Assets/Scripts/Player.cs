@@ -111,11 +111,16 @@ public class Player : MonoBehaviour
 
         if (rb.linearVelocityY < 0)
         {
-            rb.gravityScale = 1.5f;
+            rb.gravityScale = 3f;
         }
         else
         {
-            rb.gravityScale = 1f;
+            rb.gravityScale = 2f;
+        }
+
+        if (transform.position.y < -10)
+        {
+            Die();
         }
     }
 
