@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,6 +30,9 @@ public class Player : MonoBehaviour
 
     public int extraJumpsValue = 1;
     private int extraJumps;
+
+    public float coyoteTime = 0.2f;
+    private float coyoteTimeCounter; 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,15 +49,21 @@ public class Player : MonoBehaviour
 
         if (isGrounded)
         {
+            coyoteTimeCounter = coyoteTime;
             extraJumps = extraJumpsValue;            
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isGrounded)
+            if (coyoteTimeCounter > 0f)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip);
+                coyoteTimeCounter = 0f;
             }
             else if (extraJumps > 0)
             {
