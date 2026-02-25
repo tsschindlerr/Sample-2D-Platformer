@@ -3560,7 +3560,8 @@ MonoBehaviour:
   coins: 0
   health: 100
   moveSpeed: 5
-  jumpForce: 10
+  jumpForce: 8.5
+  jumpContinuousForce: 2
   groundCheck: {fileID: 788194689}
   groundCheckRadius: 0.2
   groundLayer:
@@ -3571,6 +3572,7 @@ MonoBehaviour:
   hurtClip: {fileID: 8300000, guid: 3dc7d265f9c42437492a59228fc7b6d7, type: 3}
   extraJumpsValue: 1
   coyoteTime: 0.2
+  jumpBufferTime: 0.15
 --- !u!95 &1421840568
 Animator:
   serializedVersion: 7

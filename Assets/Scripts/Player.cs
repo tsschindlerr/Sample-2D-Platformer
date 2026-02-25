@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     public int coins;
     public int health = 100;
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 8.5f;
+    public float jumpContinuousForce = 1f;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
@@ -32,7 +33,10 @@ public class Player : MonoBehaviour
     private int extraJumps;
 
     public float coyoteTime = 0.2f;
-    private float coyoteTimeCounter; 
+    private float coyoteTimeCounter;
+
+    public float jumpBufferTime = 0.15f;
+    private float jumpBufferCounter;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,7 +54,7 @@ public class Player : MonoBehaviour
         if (isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
-            extraJumps = extraJumpsValue;            
+            extraJumps = extraJumpsValue;
         }
         else
         {
@@ -59,18 +63,34 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (jumpBufferCounter > 0f)
+        {
             if (coyoteTimeCounter > 0f)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip);
                 coyoteTimeCounter = 0f;
+                jumpBufferCounter = 0f;
             }
             else if (extraJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
                 PlaySFX(jumpClip);
+                jumpBufferCounter = 0f;
             }
+        }
+
+        if (Input.GetKey(KeyCode.Space) && rb.linearVelocityY > 0)
+        {
+            rb.AddForceY(jumpContinuousForce);
         }
 
         SetAnimation(moveInput);
