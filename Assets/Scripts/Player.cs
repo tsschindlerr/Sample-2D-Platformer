@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -134,5 +135,14 @@ public class Player : MonoBehaviour
         audioSource.clip = audioClip;
         audioSource.volume = volume;
         audioSource.Play();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Powerup")
+        {
+            extraJumpsValue = 2;
+            Destroy(collision.gameObject);
+        }
     }
 }
