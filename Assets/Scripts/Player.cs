@@ -46,6 +46,11 @@ public class Player : MonoBehaviour
         healthImage = GameObject.FindWithTag("Health").GetComponent<Image>();
 
         extraJumps = extraJumpsValue;
+
+        if (Checkpoint.savedPosition != Vector2.zero)
+        {
+            transform.position = Checkpoint.savedPosition;
+        }
     }
     void Update()
     {
