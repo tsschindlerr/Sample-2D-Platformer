@@ -8,6 +8,7 @@ TagManager:
   - CoinText
   - BouncePad
   - Powerup
+  - Health
   layers:
   - Default
   - TransparentFX

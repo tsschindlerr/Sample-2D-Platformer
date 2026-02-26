@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
-    public Image healthImage;
+    private Image healthImage;
 
     public AudioClip jumpClip;
     public AudioClip hurtClip;
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        healthImage = GameObject.FindWithTag("Health").GetComponent<Image>();
 
         extraJumps = extraJumpsValue;
     }
