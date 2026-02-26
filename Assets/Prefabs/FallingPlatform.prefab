@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7363156496115681012}
   - component: {fileID: 6666713130096669511}
   - component: {fileID: 4411625246568178897}
+  - component: {fileID: 3363892412919578480}
   m_Layer: 6
   m_Name: Container
   m_TagString: Untagged
@@ -95,6 +96,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingPlatform
   timeBeforeFall: 1
+--- !u!208 &3363892412919578480
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429412153394821515}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4170752006882560488
 GameObject:
   m_ObjectHideFlags: 0
