@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        
 
         if(rb.linearVelocityX != 0)
         {
@@ -127,6 +127,11 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        float moveInput = Input.GetAxis("Horizontal");
+        rb.AddForce(new Vector2(moveInput * moveSpeed * 50, 0f), ForceMode2D.Force);
+
+        rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed), rb.linearVelocity.y);
     }
 
     private void SetAnimation(float moveInput)
