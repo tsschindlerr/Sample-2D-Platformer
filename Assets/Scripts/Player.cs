@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
     public float jumpBufferTime = 0.15f;
     private float jumpBufferCounter;
+
+    public bool speedBoost;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -137,7 +139,10 @@ public class Player : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         rb.AddForce(new Vector2(moveInput * moveSpeed * 50, 0f), ForceMode2D.Force);
 
-        rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed), rb.linearVelocity.y);
+        if (!speedBoost)
+        {
+            rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocityX, -moveSpeed, moveSpeed), rb.linearVelocity.y);
+        }
     }
 
     private void SetAnimation(float moveInput)
