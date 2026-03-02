@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5896965598638750508}
   - component: {fileID: 4047003806010952527}
   - component: {fileID: 7317866193330293185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -177,12 +177,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  healthImage: {fileID: 0}
   jumpClip: {fileID: 8300000, guid: 3907b9a66967648e0bd353f41fa2b1e5, type: 3}
   hurtClip: {fileID: 8300000, guid: 3dc7d265f9c42437492a59228fc7b6d7, type: 3}
   extraJumpsValue: 1
   coyoteTime: 0.2
   jumpBufferTime: 0.15
+  speedBoost: 0
 --- !u!95 &5896965598638750508
 Animator:
   serializedVersion: 7
